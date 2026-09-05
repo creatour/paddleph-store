@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * .6);
+  --radius-md: calc(var(--radius) * .8);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.99 0.004 245);
+  --foreground: oklch(0.22 0.025 245);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.025 245);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.025 245);
+  --primary: oklch(0.25 0.045 245);
+  --primary-foreground: oklch(0.99 0.004 245);
+  --secondary: oklch(0.58 0.17 255);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.965 0.008 245);
+  --muted-foreground: oklch(0.52 0.025 245);
+  --accent: oklch(0.61 0.17 145);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.015 245);
+  --ring: oklch(0.58 0.17 255);
+  --radius: 0.7rem;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.18 0.025 245);
+  --foreground: oklch(0.94 0.01 245);
+  --card: oklch(0.22 0.03 245);
+  --card-foreground: oklch(0.94 0.01 245);
+  --popover: oklch(0.22 0.03 245);
+  --popover-foreground: oklch(0.94 0.01 245);
+  --primary: oklch(0.78 0.04 220);
+  --primary-foreground: oklch(0.18 0.025 245);
+  --secondary: oklch(0.64 0.15 150);
+  --secondary-foreground: oklch(0.16 0.025 245);
+  --muted: oklch(0.25 0.03 245);
+  --muted-foreground: oklch(0.72 0.025 245);
+  --accent: oklch(0.72 0.16 145);
+  --accent-foreground: oklch(0.16 0.025 245);
+  --border: oklch(0.34 0.03 245);
+  --ring: oklch(0.64 0.15 150);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-sans; }
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes intro-paddle {
+  0% { opacity: 0; transform: rotate(-24deg) scale(.7); }
+  35% { opacity: 1; transform: rotate(8deg) scale(1); }
+  75% { opacity: 1; transform: rotate(-3deg) scale(1); }
+  100% { opacity: 0; transform: rotate(0) scale(1.12); }
+}
+
+@keyframes intro-brand {
+  0%, 30% { opacity: 0; transform: translateY(8px); }
+  45%, 86% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes intro-tagline {
+  0%, 52% { opacity: 0; transform: translateY(8px); }
+  65%, 86% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes intro-overlay {
+  0%, 84% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.04); pointer-events: none; }
+}
+
+.intro-animation { animation: intro-overlay 3s ease-in-out forwards; }
+.intro-paddle { animation: intro-paddle 2.65s cubic-bezier(.22,.61,.36,1) forwards; }
+.intro-brand { animation: intro-brand 2.65s ease-in-out forwards; }
+.intro-tagline { animation: intro-tagline 2.65s ease-in-out forwards; }
+
