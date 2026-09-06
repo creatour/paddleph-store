@@ -77,6 +77,29 @@
 
 button, a { -webkit-tap-highlight-color: transparent; }
 
+footer { font-size: .75rem; }
+footer > div { gap: .5rem; padding: 1rem .75rem; }
+footer .text-sm { font-size: .75rem; line-height: 1rem; }
+footer .mt-4 { margin-top: .5rem; }
+footer .mt-5 { margin-top: .5rem; }
+footer .gap-8 { gap: .5rem; }
+footer .gap-3 { gap: .5rem; }
+
+@media (min-width: 640px) {
+  footer { font-size: .875rem; }
+  footer > div { gap: 1.5rem; padding: 1.5rem 1rem; }
+  footer .text-sm { font-size: .875rem; line-height: 1.25rem; }
+  footer .mt-4 { margin-top: .75rem; }
+  footer .mt-5 { margin-top: .75rem; }
+  footer .gap-8 { gap: 1.5rem; }
+  footer .gap-3 { gap: .75rem; }
+}
+
+@media (min-width: 1024px) {
+  footer > div { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  footer > div > div:nth-child(2) { display: contents; }
+}
+
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
